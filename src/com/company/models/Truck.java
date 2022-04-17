@@ -53,7 +53,7 @@ public class Truck {
 
     public static void changeDriver(Truck truck, Driver[] driver) {
         for (Driver d:driver) {
-            if(d.getTruck().matches("[^a-zA-Z]*")){
+            if(d.getTruck().matches("[^a-zA-Z]*")){ // bosh driverdi myntip tappait bosh driverdi (d.getTruck != null) ushintip teksherishiniz kerek
                 truck.setDriver(d.getName());
                 d.setTruck(truck.getName());
                 break;
@@ -73,7 +73,7 @@ public class Truck {
 
     public static void startDriving(Truck truck) {
         if (truck.getState().equals("base")){
-            if (!truck.getDriver().equals("")){
+            if (!truck.getDriver().equals("")){ // nulldu dagy unutbanyz
                 truck.setState("route");
                 System.err.println("Водитель успешно стартовал");
             } else {
@@ -82,7 +82,7 @@ public class Truck {
         } else if (truck.getState().equals("route")){
             System.err.println("Водитель уже в пути!");
         } else {
-            Random random = new Random();
+            Random random = new Random(); // emne uchun randomdu koldondunuz
             int road = random.nextInt(2);
             if (road == 0){
                 truck.setState("route");
@@ -100,7 +100,7 @@ public class Truck {
             System.out.println("Грузовик на ремонте");
         }else if (truck.getState().equals("route")){
             truck.setState("repair");
-        }else {
+        }else {.                                                // <- bul jaka if kohsup koyushunuz kerek eken sebebi 'dinara' dep jazyp koysok dele ishtei beret
             System.out.println("Грузовик на ремонте");
         }
     }
